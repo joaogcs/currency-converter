@@ -1,36 +1,68 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <v-app-bar app color="primary">
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <router-link
+            to="/"
+            exact
+            style="text-decoration: none; color: inherit;"
+          >
+            <div class="d-flex align-center" v-bind="attrs" v-on="on">
+              <h2 class="mr-3">
+                [LOGO]
+              </h2>
+              <h3>
+                Currency converter
+              </h3>
+            </div>
+          </router-link>
+        </template>
+        <span>Go to home page</span>
+      </v-tooltip>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <router-link
+            to="/"
+            exact
+            style="text-decoration: none; color: inherit;"
+            ><v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-home-circle-outline</v-icon>
+            </v-btn>
+          </router-link>
+        </template>
+        <span>Home</span>
+      </v-tooltip>
+
+      <v-divider class="mx-2" vertical></v-divider>
+
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <router-link
+            to="/about"
+            exact
+            style="text-decoration: none; color: inherit;"
+            ><v-btn icon v-bind="attrs" v-on="on">
+              <v-icon>mdi-information-outline</v-icon>
+            </v-btn>
+          </router-link>
+        </template>
+        <span>About</span>
+      </v-tooltip>
+
+      <v-divider class="mx-2" vertical></v-divider>
+
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-cog</v-icon>
+          </v-btn>
+        </template>
+        <span>Not implemented yet</span>
+      </v-tooltip>
     </v-app-bar>
 
     <v-main>
