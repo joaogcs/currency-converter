@@ -9,11 +9,9 @@
             style="text-decoration: none; color: inherit;"
           >
             <div class="d-flex align-center" v-bind="attrs" v-on="on">
-              <h2 class="grey--text text--darken-2">
-                [LOGO]
-              </h2>
+              <v-icon x-large class="mr-3">mdi-cash-multiple</v-icon>
               <h3 class="grey--text text--darken-2">
-                Currency converter
+                Title
               </h3>
             </div>
           </router-link>
