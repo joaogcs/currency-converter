@@ -1,7 +1,14 @@
 <template>
   <v-container fill-height class="green">
     <v-row align="center" justify="center">
-      <v-col cols="12" sm="auto" md="auto" v-for="n in cards" :key="n">
+      <v-col
+        class="d-flex justify-center"
+        cols="12"
+        sm="auto"
+        md="auto"
+        v-for="n in cards"
+        :key="n"
+      >
         <Card />
       </v-col>
     </v-row>
