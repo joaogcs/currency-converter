@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height class="green">
+  <v-container fill-height>
     <v-row align="center" justify="center">
       <v-col
         class="d-flex justify-center"

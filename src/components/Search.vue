@@ -1,12 +1,11 @@
 <template>
-  <v-container class="red">
+  <v-container>
     <v-autocomplete
       v-model="model"
       :items="items"
       :loading="isLoading"
       :search-input.sync="search"
-      class="mb-n7"
-      color="white"
+      class="mb-n7 "
       hide-no-data
       hide-selected
       label="Search currencies"

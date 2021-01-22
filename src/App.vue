@@ -9,10 +9,10 @@
             style="text-decoration: none; color: inherit;"
           >
             <div class="d-flex align-center" v-bind="attrs" v-on="on">
-              <h2 class="mr-3">
+              <h2 class="grey--text text--darken-2">
                 [LOGO]
               </h2>
-              <h3>
+              <h3 class="grey--text text--darken-2">
                 Currency converter
               </h3>
             </div>
