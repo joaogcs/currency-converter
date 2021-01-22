@@ -2,7 +2,7 @@
 
 For learning Vue.js purposes.
 
-Hosted on Github Pages - [https://joaogcs.github.io/template-vuetify-spa/](https://joaogcs.github.io/template-vuetify-spa/)
+Hosted on Github Pages - [https://joaogcs.github.io/currency-converter/](https://joaogcs.github.io/currency-converter/)
 
 ### Made with
 
