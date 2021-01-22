@@ -64,9 +64,10 @@
         <span>Not implemented yet</span>
       </v-tooltip>
     </v-app-bar>
-
     <v-main>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
       <!-- <HelloWorld /> -->
     </v-main>
   </v-app>
@@ -87,3 +88,14 @@ export default {
   })
 };
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+</style>
