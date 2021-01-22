@@ -2,19 +2,16 @@
   <v-container class="red">
     <v-autocomplete
       v-model="model"
-      :hint="!isEditing ? 'Click the icon to edit' : 'Click the icon to save'"
       :items="items"
       :loading="isLoading"
       :search-input.sync="search"
-      class="mb-0"
+      class="mb-n7"
       color="white"
       hide-no-data
       hide-selected
-      item-text="Description"
-      item-value="API"
-      label="Currencies"
+      label="Search currencies"
       placeholder="Start typing to search"
-      prepend-icon="mdi-database-search"
+      append-icon="mdi-magnify"
       auto-select-first
       chips
       clearable
