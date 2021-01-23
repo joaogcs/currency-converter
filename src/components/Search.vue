@@ -19,8 +19,8 @@
       placeholder="Start typing to search"
       prepend-inner-icon="mdi-magnify"
       :menu-props="{
-        closeOnClick: false,
-        closeOnContentClick: false,
+        closeOnClick: true,
+        closeOnContentClick: true,
         disableKeys: false,
         openOnClick: false,
         maxHeight: 304,
