@@ -1,10 +1,6 @@
 <template>
   <v-container>
-    <v-card
-      :loading="loading"
-      class="grey lighten-3 px-2 ma-0"
-      min-width="250px"
-    >
+    <v-card :loading="loading" class="tertiary px-2 ma-0" min-width="250px">
       <v-row class="text-center">
         <v-col align-self="center"
           ><span>BRL</span>
