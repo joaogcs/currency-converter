@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
+    <v-app-bar app>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
           <router-link
@@ -10,7 +10,7 @@
           >
             <div class="d-flex align-center" v-bind="attrs" v-on="on">
               <v-icon x-large class="mr-3">mdi-cash-multiple</v-icon>
-              <h3 class="grey--text text--darken-2">
+              <h3>
                 Title
               </h3>
             </div>
@@ -33,6 +33,24 @@
           </router-link>
         </template>
         <span>Home</span>
+      </v-tooltip>
+
+      <v-divider class="mx-2" vertical></v-divider>
+
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+          >
+            <v-icon>{{
+              $vuetify.theme.dark ? themeIcon.light : themeIcon.dark
+            }}</v-icon>
+          </v-btn>
+        </template>
+        <span>{{ $vuetify.theme.dark ? "Light Mode" : "Night Mode" }}</span>
       </v-tooltip>
 
       <v-divider class="mx-2" vertical></v-divider>
@@ -73,17 +91,24 @@
 
 <script>
 // import HelloWorld from "./components/HelloWorld";
+// import QuickTools from "./components/QuickTools";
 
 export default {
   name: "App",
 
-  // components: {
-  //   HelloWorld
-  // },
+  components: {
+    // HelloWorld,
+    // QuickTools
+  },
 
   data: () => ({
-    //
-  })
+    themeIcon: {
+      light: "mdi-weather-sunny",
+      dark: "mdi-weather-night"
+    }
+  }),
+
+  methods: {}
 };
 </script>
 
