@@ -5,6 +5,7 @@
         <v-col align-self="center">
           <SearchSingleCurrency />
           <v-text-field
+            type="text"
             v-model="currencyA"
             v-currency="{
               locale: 'en',
@@ -37,6 +38,7 @@
         <v-col align-self="center"
           ><SearchSingleCurrency />
           <v-text-field
+            type="text"
             v-model="currencyB"
             v-currency="{
               locale: 'en',
