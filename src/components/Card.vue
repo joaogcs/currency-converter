@@ -5,9 +5,17 @@
         <v-col align-self="center">
           <SearchSingleCurrency />
           <v-text-field
-            type="text"
-            v-mask="mask"
             v-model="currencyA"
+            v-currency="{
+              locale: 'en',
+              currency: null,
+              valueAsInteger: false,
+              distractionFree: false,
+              precision: 2,
+              autoDecimalMode: true,
+              valueRange: { min: 0 },
+              allowNegative: false
+            }"
             onfocus="this.placeholder = ''"
             placeholder="1.00"
             onblur="this.placeholder = '1.00'"
@@ -29,9 +37,17 @@
         <v-col align-self="center"
           ><SearchSingleCurrency />
           <v-text-field
-            type="text"
-            v-mask="mask"
             v-model="currencyB"
+            v-currency="{
+              locale: 'en',
+              currency: null,
+              valueAsInteger: false,
+              distractionFree: false,
+              precision: 2,
+              autoDecimalMode: true,
+              valueRange: { min: 0 },
+              allowNegative: false
+            }"
             onfocus="this.placeholder = ''"
             placeholder="1.00"
             onblur="this.placeholder = '1.00'"
@@ -46,16 +62,7 @@
 
 <script>
 import SearchSingleCurrency from "@/components/SearchSingleCurrency.vue";
-import createNumberMask from "text-mask-addons/dist/createNumberMask";
-const currencyMask = createNumberMask({
-  prefix: "",
-  allowDecimal: true,
-  includeThousandsSeparator: true,
-  allowNegative: false,
-  thousandsSeparatorSymbol: ".",
-  decimalSymbol: ",",
-  decimalLimit: 2
-});
+
 export default {
   name: "Card",
 
@@ -67,9 +74,8 @@ export default {
   },
 
   data: () => ({
-    mask: currencyMask,
-    currencyA: "",
-    currencyB: "",
+    currencyA: "1.00",
+    currencyB: "1.00",
     loading: false,
     selection: 1
   }),

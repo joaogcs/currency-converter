@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VueMask from "v-mask";
+import VueCurrencyInput from "vue-currency-input";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
@@ -15,4 +15,9 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-Vue.use(VueMask);
+const pluginOptions = {
+  /* see config reference */
+  globalOptions: { currency: "" }
+};
+
+Vue.use(VueCurrencyInput, pluginOptions);
