@@ -176,6 +176,14 @@
     </v-navigation-drawer>
 
     <v-main>
+      <Card
+        class="mt-4 mb-2 mx-auto"
+        :class="{
+          'px-1': $vuetify.breakpoint.smAndDown
+        }"
+        style="maxWidth: 960px;"
+        no-wrap
+      />
       <v-fade-transition :hide-on-leave="true">
         <router-view></router-view>
       </v-fade-transition>
@@ -185,13 +193,14 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld";
-// import QuickTools from "./components/QuickTools";
+import Card from "@/components/Card.vue";
 
 export default {
   name: "App",
 
   components: {
+    Card
+
     // HelloWorld,
     // QuickTools
   },
