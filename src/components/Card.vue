@@ -8,7 +8,9 @@
             type="text"
             v-mask="mask"
             v-model="currencyA"
+            onfocus="this.placeholder = ''"
             placeholder="1.00"
+            onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolA"
             class="centered-input"
           />
@@ -30,7 +32,9 @@
             type="text"
             v-mask="mask"
             v-model="currencyB"
+            onfocus="this.placeholder = ''"
             placeholder="1.00"
+            onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolA"
             class="centered-input"
           />

@@ -18,7 +18,6 @@
         hide-no-data
         hide-selected
         label="Search currencies"
-        placeholder="Start typing to search"
         :prepend-inner-icon="
           $vuetify.breakpoint.mdAndUp ? 'mdi-magnify' : undefined
         "
@@ -29,7 +28,7 @@
           disableKeys: false,
           openOnClick: false,
           maxHeight: 304,
-          // offsetY: true,
+          offsetY: true,
           // rounded: 'b-xl',
           offsetOverflow: false,
           transition: 'slide-y-transition'
@@ -71,7 +70,7 @@
           >
             mdi-currency-{{ item.id.toLowerCase() }}
           </v-icon>
-          <span v-text="item.id"></span>
+          <h2 v-text="item.id"></h2>
         </template>
         <template v-slot:item="{ item }">
           <v-list-item-avatar
