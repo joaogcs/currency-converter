@@ -1,31 +1,71 @@
 <template>
   <v-container>
-    <v-card
-      :loading="loading"
-      class="tertiary px-2 ma-0 rounded-lg"
-      min-width="250px"
-    >
-      <v-row class="text-center">
-        <v-col align-self="center"
-          ><span>BRL</span>
-          <v-text-field> </v-text-field>
+    <v-card :loading="loading" class="tertiary px-2 ma-0 rounded-lg">
+      <v-row class="text-center" wrap>
+        <v-col align-self="center">
+          <SearchSingleCurrency />
+          <v-text-field
+            type="text"
+            v-mask="mask"
+            v-model="currencyA"
+            placeholder="1.00"
+            :prepend-inner-icon="currencySymbolA"
+            class="centered-input"
+          />
         </v-col>
-        <v-col cols="auto" align-self="center">
+        <v-col
+          class="ma-auto pa-auto"
+          :class="{
+            'mx-0': $vuetify.breakpoint.smAndDown,
+            'px-0': $vuetify.breakpoint.smAndDown
+          }"
+          cols="auto"
+          align-self="center"
+        >
           <v-icon>mdi-arrow-split-vertical</v-icon>
         </v-col>
         <v-col align-self="center"
-          ><span>USD</span> <v-text-field> </v-text-field
-        ></v-col>
+          ><SearchSingleCurrency />
+          <v-text-field
+            type="text"
+            v-mask="mask"
+            v-model="currencyB"
+            placeholder="1.00"
+            :prepend-inner-icon="currencySymbolA"
+            class="centered-input"
+          />
+        </v-col>
       </v-row>
     </v-card>
   </v-container>
 </template>
 
 <script>
+import SearchSingleCurrency from "@/components/SearchSingleCurrency.vue";
+import createNumberMask from "text-mask-addons/dist/createNumberMask";
+const currencyMask = createNumberMask({
+  prefix: "",
+  allowDecimal: true,
+  includeThousandsSeparator: true,
+  allowNegative: false,
+  thousandsSeparatorSymbol: ".",
+  decimalSymbol: ",",
+  decimalLimit: 2
+});
 export default {
   name: "Card",
 
+  props: ["currencySymbolA", "currencySymbolB"],
+
+  components: {
+    // HelloWorld,
+    SearchSingleCurrency
+  },
+
   data: () => ({
+    mask: currencyMask,
+    currencyA: "",
+    currencyB: "",
     loading: false,
     selection: 1
   }),
@@ -39,3 +79,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+::v-deep .centered-input input {
+  text-align: center;
+  font-size: 1.8em;
+}
+</style>
