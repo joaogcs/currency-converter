@@ -19,9 +19,9 @@
         hide-selected
         label="Search currencies"
         :prepend-inner-icon="
-          $vuetify.breakpoint.mdAndUp ? 'mdi-magnify' : undefined
+          $vuetify.breakpoint.smAndUp ? 'mdi-magnify' : undefined
         "
-        :append-icon="$vuetify.breakpoint.mdAndUp ? 'mdi-menu-down' : ''"
+        :append-icon="$vuetify.breakpoint.smAndUp ? 'mdi-menu-down' : ''"
         :menu-props="{
           closeOnClick: true,
           closeOnContentClick: true,
