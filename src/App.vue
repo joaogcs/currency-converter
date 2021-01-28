@@ -121,35 +121,6 @@
       </template>
     </v-navigation-drawer>
 
-    <!-- <v-navigation-drawer v-else v-model="drawer" temporary fixed>
-      <template>
-        <v-app-bar
-          flat
-          style="border-bottom-style: solid;
-  border-bottom-color: coral;
-  border-bottom-width: 1px;"
-        >
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-              <router-link
-                to="/"
-                exact
-                style="text-decoration: none; color: inherit;"
-              >
-                <div class="d-flex align-center" v-bind="attrs" v-on="on">
-                  <v-icon x-large class="mr-3">mdi-cash-multiple</v-icon>
-                  <h3>
-                    Title
-                  </h3>
-                </div>
-              </router-link>
-            </template>
-            <span>Go to home page</span>
-          </v-tooltip>
-        </v-app-bar>
-      </template>
-    </v-navigation-drawer> -->
-
     <v-navigation-drawer
       v-model="drawer_right"
       v-if="$vuetify.breakpoint.lgAndUp"
@@ -224,6 +195,10 @@ export default {
     }
   }),
 
-  methods: {}
+  watch: {
+    "$vuetify.breakpoint.lgAndUp"() {
+      this.drawer = this.$vuetify.breakpoint.lgAndUp ? true : false;
+    }
+  }
 };
 </script>
