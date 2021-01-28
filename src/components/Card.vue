@@ -40,6 +40,7 @@
           ><SearchSingleCurrency />
           <v-text-field
             ref="currencyB"
+            type="text"
             v-model="currencyB"
             v-currency="{
               locale: 'en',
@@ -54,7 +55,7 @@
             onfocus="this.placeholder = ''"
             placeholder="1.00"
             onblur="this.placeholder = '1.00'"
-            :prepend-inner-icon="currencySymbolA"
+            :prepend-inner-icon="currencySymbolB"
             class="centered-input"
           />
         </v-col>
@@ -64,8 +65,8 @@
 </template>
 
 <script>
-import { setValue } from "vue-currency-input";
 import SearchSingleCurrency from "@/components/SearchSingleCurrency.vue";
+import { setValue } from "vue-currency-input";
 
 export default {
   name: "Card",
@@ -77,23 +78,25 @@ export default {
     SearchSingleCurrency
   },
 
-  mounted() {
-    this.updateCurrencyA(1);
-    this.updateCurrencyB(1);
+  data() {
+    return {
+      currencyA: "1",
+      currencyB: "1",
+      loading: false,
+      selection: 1
+    };
   },
 
-  data: () => ({
-    currencyA: "",
-    currencyB: "",
-    loading: false,
-    selection: 1
-  }),
+  mounted() {
+    this.updateCurrencyA(1);
+  },
 
   methods: {
     updateCurrencyA(val) {
       setValue(this.$refs.currencyA, val);
     },
     updateCurrencyB(val) {
+      console.log("ok");
       setValue(this.$refs.currencyB, val);
     }
   }

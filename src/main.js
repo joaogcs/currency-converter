@@ -1,12 +1,14 @@
 import Vue from "vue";
-import VueCurrencyInput from "vue-currency-input";
 import App from "./App.vue";
+import VueCurrencyInput from "vue-currency-input";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
+
+Vue.use(VueCurrencyInput, pluginOptions);
 
 new Vue({
   router,
@@ -19,5 +21,3 @@ const pluginOptions = {
   /* see config reference */
   globalOptions: { currency: "" }
 };
-
-Vue.use(VueCurrencyInput, pluginOptions);
