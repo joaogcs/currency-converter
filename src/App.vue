@@ -72,12 +72,11 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-model="drawer_fixed"
-      v-if="$vuetify.breakpoint.lgAndUp"
-      app
-      floating
+      v-model="drawer"
+      :app="$vuetify.breakpoint.lgAndUp"
+      :floating="$vuetify.breakpoint.lgAndUp"
+      :temporary="$vuetify.breakpoint.smAndDown"
       fixed
-      left
     >
       <template>
         <v-app-bar
@@ -122,7 +121,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-navigation-drawer v-else v-model="drawer" temporary fixed>
+    <!-- <v-navigation-drawer v-else v-model="drawer" temporary fixed>
       <template>
         <v-app-bar
           flat
@@ -149,7 +148,7 @@
           </v-tooltip>
         </v-app-bar>
       </template>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <v-navigation-drawer
       v-model="drawer_right"
@@ -177,7 +176,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-fade-transition hide-on-leave="true">
+      <v-fade-transition :hide-on-leave="true">
         <router-view></router-view>
       </v-fade-transition>
       <!-- <HelloWorld /> -->
@@ -207,7 +206,7 @@ export default {
       { text: "Audience", icon: "mdi-account" },
       { text: "Conversions", icon: "mdi-flag" }
     ],
-    drawer: false,
+    drawer: null,
     drawer_right: true,
     drawer_fixed: true,
     themeIcon: {
