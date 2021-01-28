@@ -5,6 +5,7 @@
         <v-col align-self="center">
           <SearchSingleCurrency />
           <v-text-field
+            ref="currencyA"
             type="text"
             v-model="currencyA"
             v-currency="{
@@ -38,7 +39,7 @@
         <v-col align-self="center"
           ><SearchSingleCurrency />
           <v-text-field
-            type="text"
+            ref="currencyB"
             v-model="currencyB"
             v-currency="{
               locale: 'en',
@@ -63,6 +64,7 @@
 </template>
 
 <script>
+import { setValue } from "vue-currency-input";
 import SearchSingleCurrency from "@/components/SearchSingleCurrency.vue";
 
 export default {
@@ -75,18 +77,24 @@ export default {
     SearchSingleCurrency
   },
 
+  mounted() {
+    this.updateCurrencyA(1);
+    this.updateCurrencyB(1);
+  },
+
   data: () => ({
-    currencyA: "1.00",
-    currencyB: "1.00",
+    currencyA: "",
+    currencyB: "",
     loading: false,
     selection: 1
   }),
 
   methods: {
-    reserve() {
-      this.loading = true;
-
-      setTimeout(() => (this.loading = false), 2000);
+    updateCurrencyA(val) {
+      setValue(this.$refs.currencyA, val);
+    },
+    updateCurrencyB(val) {
+      setValue(this.$refs.currencyB, val);
     }
   }
 };
