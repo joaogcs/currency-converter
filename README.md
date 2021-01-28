@@ -51,7 +51,7 @@ vue ui
 
 Change it within vue.config.js file
 
-```
+```javascript
 module.exports = {
   publicPath: "/template-vuetify-spa/",
 };

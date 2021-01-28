@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueMask from "v-mask";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
@@ -13,3 +14,5 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount("#app");
+
+Vue.use(VueMask);
