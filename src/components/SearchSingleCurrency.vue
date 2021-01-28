@@ -9,6 +9,7 @@
       ></v-progress-linear>
       <v-autocomplete
         v-model="model"
+        ref="SearchSingleCurrency"
         :items="items"
         @input="search = null"
         :search-input.sync="search"
@@ -32,6 +33,9 @@
           // rounded: 'b-xl',
           offsetOverflow: false,
           transition: 'slide-y-transition'
+        }"
+        v-closable="{
+          handler: 'onClick'
         }"
         auto-select-first
         filled
@@ -122,6 +126,9 @@ export default {
           .toLocaleLowerCase()
           .indexOf(queryText.toLocaleLowerCase()) > -1
       );
+    },
+    onClick() {
+      this.$refs.SearchSingleCurrency.blur();
     }
   },
 
