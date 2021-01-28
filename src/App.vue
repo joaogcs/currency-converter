@@ -179,7 +179,7 @@
       <Card
         class="mt-4 mb-2 mx-auto"
         :class="{
-          'px-1': $vuetify.breakpoint.smAndDown
+          'px-1': $vuetify.breakpoint.xsAndDown
         }"
         style="maxWidth: 960px;"
         no-wrap

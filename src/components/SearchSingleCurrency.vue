@@ -60,11 +60,11 @@
           <v-spacer></v-spacer>
           <v-icon
             :class="{
-              'px-0': $vuetify.breakpoint.smAndDown,
-              'mx-1': $vuetify.breakpoint.smAndDown,
-              'ml-1': $vuetify.breakpoint.mdAndUp,
-              'mr-3': $vuetify.breakpoint.mdAndUp,
-              'px-auto': $vuetify.breakpoint.mdAndUp
+              'px-0': $vuetify.breakpoint.xsAndDown,
+              'mx-1': $vuetify.breakpoint.xsAndDown,
+              'ml-1': $vuetify.breakpoint.smAndUp,
+              'mr-3': $vuetify.breakpoint.smAndUp,
+              'px-auto': $vuetify.breakpoint.smAndUp
             }"
             left
           >
