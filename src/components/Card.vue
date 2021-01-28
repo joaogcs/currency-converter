@@ -23,6 +23,9 @@
             onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolA"
             class="centered-input"
+            v-closable="{
+              handler: 'onClick'
+            }"
           />
         </v-col>
         <v-col
@@ -57,6 +60,9 @@
             onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolB"
             class="centered-input"
+            v-closable="{
+              handler: 'onClick'
+            }"
           />
         </v-col>
       </v-row>
@@ -96,8 +102,11 @@ export default {
       setValue(this.$refs.currencyA, val);
     },
     updateCurrencyB(val) {
-      console.log("ok");
       setValue(this.$refs.currencyB, val);
+    },
+    onClick() {
+      this.$refs.currencyA.blur();
+      this.$refs.currencyB.blur();
     }
   }
 };
