@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card :loading="loading" class="tertiary px-2 ma-0 rounded-lg">
+    <v-card :loading="loading" class="tertiary px-2 my-0 mx-1 rounded-lg">
       <v-row class="text-center" wrap>
         <v-col align-self="center">
           <SearchSingleCurrency />
