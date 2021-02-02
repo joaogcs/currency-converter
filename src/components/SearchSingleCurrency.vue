@@ -78,6 +78,7 @@
             @click="
               {
                 dismissMobileKeyboard;
+                test(item.id);
               }
             "
           >
@@ -124,6 +125,7 @@ export default {
       );
     },
     dismissMobileKeyboard() {
+      this.$refs.SearchSingleCurrency.blur();
       this.$refs.SearchSingleCurrency.nativeView.dismissSoftInput();
     },
     test(val) {
