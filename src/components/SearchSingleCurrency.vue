@@ -124,7 +124,7 @@ export default {
       );
     },
     dismissMobileKeyboard() {
-      this.$refs.SearchSingleCurrency.blur();
+      this.$refs.SearchSingleCurrency.nativeView.dismissSoftInput();
     },
     test(val) {
       alert(val);
