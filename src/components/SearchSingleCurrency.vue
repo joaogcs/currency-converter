@@ -34,9 +34,6 @@
           offsetOverflow: false,
           transition: 'slide-y-transition'
         }"
-        v-closable="{
-          handler: 'onClick'
-        }"
         auto-select-first
         filled
         solo
@@ -44,25 +41,18 @@
         item-text="id"
         return-object
       >
-        <template v-slot:no-data>
-          <v-list-item>
-            <v-list-item-title>
-              Search for your favorite
-              <strong>Currency</strong>
-            </v-list-item-title>
-          </v-list-item>
-        </template>
         <template
           v-slot:selection="{ attr, on, item, selected }"
           v-bind="attr"
+          v-on="on"
           :input-value="selected"
           color="accent"
-          v-on="on"
           align-center
           justify-center
         >
           <v-spacer></v-spacer>
           <v-icon
+            color="accent"
             :class="{
               'px-0': $vuetify.breakpoint.xsAndDown,
               'mx-1': $vuetify.breakpoint.xsAndDown,
@@ -74,7 +64,7 @@
           >
             mdi-currency-{{ item.id.toLowerCase() }}
           </v-icon>
-          <h2 v-text="item.id"></h2>
+          <h2 v-text="item.id" class="primary--text"></h2>
         </template>
         <template v-slot:item="{ item }">
           <v-list-item-avatar
@@ -84,7 +74,13 @@
           >
             {{ item.id.charAt(0) }}
           </v-list-item-avatar>
-          <v-list-item-content>
+          <v-list-item-content
+            @click="
+              {
+                dismissMobileKeyboard;
+              }
+            "
+          >
             <v-list-item-title v-text="item.id"></v-list-item-title>
             <v-list-item-subtitle
               v-text="item.currencyName"
@@ -93,8 +89,8 @@
           <v-list-item-action>
             <v-icon>mdi-currency-{{ item.id.toLowerCase() }}</v-icon>
           </v-list-item-action>
-        </template></v-autocomplete
-      >
+        </template>
+      </v-autocomplete>
     </v-responsive>
   </v-container>
 </template>
@@ -127,8 +123,11 @@ export default {
           .indexOf(queryText.toLocaleLowerCase()) > -1
       );
     },
-    onClick() {
+    dismissMobileKeyboard() {
       this.$refs.SearchSingleCurrency.blur();
+    },
+    test(val) {
+      alert(val);
     }
   },
 

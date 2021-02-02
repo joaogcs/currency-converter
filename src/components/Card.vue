@@ -23,9 +23,6 @@
             onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolA"
             class="centered-input"
-            v-closable="{
-              handler: 'onClick'
-            }"
           />
         </v-col>
         <v-col
@@ -45,6 +42,7 @@
             ref="currencyB"
             type="text"
             v-model="currencyB"
+            class="centered-input"
             v-currency="{
               locale: 'en',
               currency: null,
@@ -59,10 +57,6 @@
             placeholder="1.00"
             onblur="this.placeholder = '1.00'"
             :prepend-inner-icon="currencySymbolB"
-            class="centered-input"
-            v-closable="{
-              handler: 'onClick'
-            }"
           />
         </v-col>
       </v-row>
@@ -103,10 +97,6 @@ export default {
     },
     updateCurrencyB(val) {
       setValue(this.$refs.currencyB, val);
-    },
-    onClick() {
-      this.$refs.currencyA.blur();
-      this.$refs.currencyB.blur();
     }
   }
 };
@@ -116,5 +106,6 @@ export default {
 ::v-deep .centered-input input {
   text-align: center;
   font-size: 1.8em;
+  /* color: var(--v-primary-base); */
 }
 </style>
