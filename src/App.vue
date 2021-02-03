@@ -2,6 +2,7 @@
   <v-app id="app">
     <v-app-bar
       flat
+      short
       clipped-right
       app
       style="border-bottom-style: solid;
@@ -23,7 +24,7 @@
                 style="text-decoration: none; color: inherit;"
               >
                 <div class="d-flex align-center" v-bind="attrs" v-on="on">
-                  <v-icon x-large class="mr-3">mdi-cash-multiple</v-icon>
+                  <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                   <v-responsive class="hidden-md-and-down">
                     <h3>
                       Title
@@ -37,6 +38,7 @@
         </v-expand-transition>
 
         <v-spacer></v-spacer>
+
         <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
             <router-link
@@ -51,12 +53,13 @@
           <span>Share</span>
         </v-tooltip>
 
-        <v-divider class="mx-2" vertical></v-divider>
-
         <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               icon
+              :class="{
+                'mr-0': $vuetify.breakpoint.lgAndUp
+              }"
               v-bind="attrs"
               v-on="on"
               @click="$vuetify.theme.dark = !$vuetify.theme.dark"
@@ -81,6 +84,7 @@
       <template>
         <v-app-bar
           flat
+          short
           style="border-bottom-style: solid;
   border-bottom-color: coral;
   border-bottom-width: 1px;"
@@ -93,7 +97,7 @@
                 style="text-decoration: none; color: inherit;"
               >
                 <div class="d-flex align-center" v-bind="attrs" v-on="on">
-                  <v-icon x-large class="mr-3">mdi-cash-multiple</v-icon>
+                  <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                   <h3>
                     Title
                   </h3>
@@ -147,14 +151,25 @@
     </v-navigation-drawer>
 
     <v-main>
-      <Card
-        class="mt-4 mb-2 mx-auto"
-        :class="{
-          'px-1': $vuetify.breakpoint.xsAndDown
-        }"
-        style="maxWidth: 960px;"
-        no-wrap
-      />
+      <v-container
+        class="d-flex flex-column px-0"
+        style="maxWidth: 960px; height: calc(100vh - 56px);"
+      >
+        <Card
+          class="mb-2 mx-auto"
+          :class="{
+            'px-1': $vuetify.breakpoint.xsAndDown,
+            'mt-2': $vuetify.breakpoint.smAndDown,
+            'mt-10': $vuetify.breakpoint.lgAndUp
+          }"
+          no-wrap
+        />
+        <!-- <v-spacer></v-spacer> -->
+        <p align="center" class="mt-6 mb-1 font-weight-medium">
+          See more
+        </p>
+        <v-icon class="mx-auto mb-2">mdi-chevron-down</v-icon>
+      </v-container>
       <v-fade-transition :hide-on-leave="true">
         <router-view></router-view>
       </v-fade-transition>
