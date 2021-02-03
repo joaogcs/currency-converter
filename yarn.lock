@@ -8330,11 +8330,6 @@ vue-cli-plugin-vuetify@~2.0.9:
     semver "^7.1.2"
     shelljs "^0.8.3"
 
-vue-closable@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/vue-closable/-/vue-closable-0.0.3.tgz#c0b9b32e04ae0dfe5edc8283272d1ed65370d0d0"
-  integrity sha512-vCUSAmZtAwgKbRrYq2e9GsHg1wl5gf56/Nl97uaFR2Gkcb/8fyYWDtV6xfPahl4T3j9TR2br/3H2QtnhFTJ4+Q==
-
 vue-currency-input@^1.22.4:
   version "1.22.4"
   resolved "https://registry.yarnpkg.com/vue-currency-input/-/vue-currency-input-1.22.4.tgz#f0474ab6f069f857df5d6c8879e5e4ce3bde735b"

@@ -77,8 +77,7 @@
           <v-list-item-content
             @click="
               {
-                dismissMobileKeyboard;
-                test(item.id);
+                dismissMobileKeyboard($event);
               }
             "
           >
@@ -124,12 +123,9 @@ export default {
           .indexOf(queryText.toLocaleLowerCase()) > -1
       );
     },
-    dismissMobileKeyboard() {
-      this.$refs.SearchSingleCurrency.blur();
-      this.$refs.SearchSingleCurrency.nativeView.dismissSoftInput();
-    },
-    test(val) {
-      alert(val);
+    dismissMobileKeyboard(event) {
+      event.target.blur(); // must happen first because it is the list
+      this.$refs.SearchSingleCurrency.blur(); // blur the autocomplete
     }
   },
 

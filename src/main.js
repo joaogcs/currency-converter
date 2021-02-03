@@ -6,12 +6,10 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 
 import VueCurrencyInput from "vue-currency-input";
-import VueClosable from "vue-closable";
 
 Vue.config.productionTip = false;
 
 Vue.use(VueCurrencyInput, pluginOptions);
-Vue.use(VueClosable);
 
 new Vue({
   router,
