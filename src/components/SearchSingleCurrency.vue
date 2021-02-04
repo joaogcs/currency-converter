@@ -13,16 +13,16 @@
         :items="items"
         @input="search = null"
         :search-input.sync="search"
+        item-text="id"
         class="centered-input"
         item-color="secondary"
         hide-details="auto"
-        hide-no-data
-        hide-selected
         label="Search currencies"
         :prepend-inner-icon="
           $vuetify.breakpoint.smAndUp ? 'mdi-magnify' : undefined
         "
         :append-icon="$vuetify.breakpoint.smAndUp ? 'mdi-menu-down' : ''"
+        :filter="filterObject"
         :menu-props="{
           closeOnClick: true,
           closeOnContentClick: true,
@@ -34,11 +34,10 @@
           offsetOverflow: false,
           transition: 'slide-y-transition'
         }"
-        auto-select-first
+        hide-no-data
+        hide-selected
         filled
         solo
-        :filter="filterObject"
-        item-text="id"
         return-object
       >
         <template
@@ -74,13 +73,7 @@
           >
             {{ item.id.charAt(0) }}
           </v-list-item-avatar>
-          <v-list-item-content
-            @click="
-              {
-                dismissMobileKeyboard($event);
-              }
-            "
-          >
+          <v-list-item-content>
             <v-list-item-title v-text="item.id"></v-list-item-title>
             <v-list-item-subtitle
               v-text="item.currencyName"
@@ -126,6 +119,11 @@ export default {
     dismissMobileKeyboard(event) {
       event.target.blur(); // must happen first because it is the list
       this.$refs.SearchSingleCurrency.blur(); // blur the autocomplete
+      alert(JSON.stringify(event));
+    },
+    test() {
+      alert("ok");
+      // this.$refs.SearchSingleCurrency.blur(); // blur the autocomplete
     }
   },
 
@@ -140,6 +138,9 @@ export default {
   },
 
   watch: {
+    model() {
+      this.$refs.SearchSingleCurrency.blur();
+    },
     search() {
       // Items have already been loaded
       if (this.items.length > 0) return;
