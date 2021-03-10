@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: "/currency-converter/",
+  publicPath: "/vuetify-currency-converter/",
   transpileDependencies: ["vuetify"]
 };

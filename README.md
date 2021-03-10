@@ -2,7 +2,7 @@
 
 For learning Vue.js purposes.
 
-Hosted on Github Pages - [https://joaogcs.github.io/currency-converter/](https://joaogcs.github.io/currency-converter/)
+Hosted on Github Pages - [https://joaogcs.github.io/vuetify-currency-converter/](https://joaogcs.github.io/vuetify-currency-converter/)
 
 ### Made with
 
