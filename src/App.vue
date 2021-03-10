@@ -27,7 +27,7 @@
                   <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                   <v-responsive class="hidden-md-and-down">
                     <h3>
-                      Title
+                      Currency converter
                     </h3>
                   </v-responsive>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="d-flex align-center" v-bind="attrs" v-on="on">
                   <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                   <h3>
-                    Title
+                    Currency converter
                   </h3>
                 </div>
               </router-link>
@@ -134,19 +134,13 @@
       right
     >
       <template>
-        <v-list-item-group>
-          <v-subheader>CONTENT</v-subheader>
-          <v-list-item-group v-model="newitem" color="primary">
-            <v-list-item v-for="(item, i) in newitems" :key="i">
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list-item-group>
+        <v-container fill-height>
+          <v-row align="center" justify="center">
+            <v-col>
+              <div>Something fixed here</div>
+            </v-col>
+          </v-row>
+        </v-container>
       </template>
     </v-navigation-drawer>
 
@@ -192,14 +186,14 @@ export default {
   },
 
   data: () => ({
-    appTitle: "App Prototype",
+    appTitle: "Vuetify Currency Converter",
     clipped: false,
 
     newitem: false,
     newitems: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" }
+      { text: "Option 1", icon: "mdi-clock" },
+      { text: "Option 2", icon: "mdi-account" },
+      { text: "Option 3", icon: "mdi-flag" }
     ],
     drawer: null,
     drawer_right: true,
