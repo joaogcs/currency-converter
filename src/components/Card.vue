@@ -74,7 +74,6 @@ export default {
   props: ["currencySymbolA", "currencySymbolB"],
 
   components: {
-    // HelloWorld,
     SearchSingleCurrency
   },
 
