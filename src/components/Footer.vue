@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-8">
     <v-row class="text-center">
       <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold mb-3">
