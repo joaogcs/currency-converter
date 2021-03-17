@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <Appbar @click="drawer = !drawer" @goTo="scrollTo($event)" />
+    <Appbar @click="drawer = !drawer" />
     <DrawerLeft :drawer="drawer" @onChange="drawer = $event" />
     <DrawerRight />
     <v-main>
