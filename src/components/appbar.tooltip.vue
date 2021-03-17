@@ -10,7 +10,11 @@
             icon
             v-bind="attrs"
             v-on="on"
-            @click="$vuetify.goTo('#About')"
+            @click="
+              $nextTick(() => {
+                $vuetify.goTo('#About');
+              })
+            "
           >
             <v-icon>mdi-information</v-icon>
           </v-btn>

@@ -23,7 +23,15 @@
               style="text-decoration: none; color: inherit;"
             >
               <div class="d-flex align-center" v-bind="attrs" v-on="on">
-                <v-icon class="mr-3">mdi-cash-multiple</v-icon>
+                <v-icon
+                  class="mr-3"
+                  @click="
+                    $nextTick(() => {
+                      $vuetify.goTo('#Converter');
+                    })
+                  "
+                  >mdi-cash-multiple</v-icon
+                >
                 <v-responsive class="hidden-md-and-down">
                   <h3>
                     Currency converter
