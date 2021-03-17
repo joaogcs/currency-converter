@@ -1,18 +1,16 @@
 <template>
   <v-app id="app">
-    <Appbar @click="drawer = !drawer" />
-    <DrawerLeft
-      :drawer="drawer"
-      @onChange="drawer = $event"
-      @goTo="scrollTo($event)"
-    />
+    <Appbar @click="drawer = !drawer" @goTo="scrollTo($event)" />
+    <DrawerLeft :drawer="drawer" @onChange="drawer = $event" />
     <DrawerRight />
     <v-main>
-      <CurrencyConverterView ref="converter" />
+      <CurrencyConverterView id="Converter" />
       <v-divider class="mx-12"></v-divider>
       <v-fade-transition :hide-on-leave="true">
-        <router-view ref="about"></router-view>
+        <router-view></router-view>
       </v-fade-transition>
+      <v-divider class="mx-12"></v-divider>
+      <Footer id="Footer" class="my-auto" />
     </v-main>
   </v-app>
 </template>
@@ -22,6 +20,7 @@ import DrawerLeft from "@/components/drawer.left.vue";
 import DrawerRight from "@/components/drawer.right.vue";
 import Appbar from "@/components/appbar.vue";
 import CurrencyConverterView from "@/views/CurrencyConverterView.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "App",
@@ -30,18 +29,15 @@ export default {
     Appbar,
     DrawerLeft,
     DrawerRight,
-    CurrencyConverterView
+    CurrencyConverterView,
+    Footer
   },
 
   data: () => ({
     drawer: null
   }),
 
-  methods: {
-    scrollTo(val) {
-      this.$vuetify.goTo(this.$refs[val]);
-    }
-  },
+  methods: {},
 
   watch: {
     "$vuetify.breakpoint.lgAndUp"() {

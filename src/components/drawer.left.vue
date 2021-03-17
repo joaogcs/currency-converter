@@ -36,12 +36,12 @@
     <template>
       <v-list-item-group>
         <v-subheader>CONTENT</v-subheader>
-        <v-list-item-group v-model="newitem" color="primary">
+        <v-list-item-group v-model="newitem" color="primary" mandatory>
           <v-list-item
             v-for="(item, i) in newitems"
             :key="i"
-            :to="item.to"
-            @click="goTo(item.goTo)"
+            @click="onSelect(i)"
+            link
           >
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
@@ -69,8 +69,15 @@ export default {
 
     newitem: false,
     newitems: [
-      { text: "Converter", icon: "mdi-home", goTo: "converter" },
-      { text: "About", icon: "mdi-information", goTo: "about" }
+      { text: "Converter", icon: "mdi-home", goTo: "Converter" },
+      {
+        text: "Details",
+        icon: "mdi-dots-horizontal",
+        to: "/",
+        goTo: "Details"
+      },
+      { text: "About", icon: "mdi-information", to: "/about", goTo: "About" },
+      { text: "Author", icon: "mdi-account", goTo: "Footer" }
     ]
   }),
 
@@ -86,11 +93,20 @@ export default {
   },
 
   methods: {
-    goTo(val) {
-      if (this.$vuetify.breakpoint.mdAndDown) {
-        this.drawer = false;
+    onSelect(index) {
+      if (this.newitems[index].to) {
+        if (this.$router.currentRoute.path === this.newitems[index].to) {
+          this.$vuetify.goTo(`#${this.newitems[index].goTo}`);
+        } else {
+          this.$router.push({ path: `${this.newitems[index].to}` }, () => {
+            this.$nextTick(() => {
+              this.$vuetify.goTo(`#${this.newitems[index].goTo}`);
+            });
+          });
+        }
+      } else {
+        this.$vuetify.goTo(`#${this.newitems[index].goTo}`);
       }
-      this.$emit("goTo", val);
     }
   },
 

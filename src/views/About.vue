@@ -1,24 +1,5 @@
 <template>
-  <v-container class="about">
-    <v-row class="text-center mt-4" justify="center" align="center">
-      <router-link to="/" exact style="text-decoration: none; color: inherit;"
-        ><v-btn class="mx-4" elevation="1" small rounded>
-          <v-icon>mdi-home-circle-outline</v-icon>
-          <v-divider vertical class="mx-2"></v-divider>
-          Home
-        </v-btn>
-      </router-link>
-      <router-link
-        to="/about"
-        exact
-        style="text-decoration: none; color: inherit;"
-        ><v-btn class="mx-4" elevation="1" small rounded>
-          <v-icon>mdi-information-outline</v-icon>
-          <v-divider vertical class="mx-2"></v-divider>
-          About
-        </v-btn>
-      </router-link>
-    </v-row>
+  <v-container id="About" class="about">
     <v-row class="text-center">
       <v-col cols="12">
         <v-img

@@ -6,12 +6,17 @@
           to="/about"
           exact
           style="text-decoration: none; color: inherit;"
-          ><v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-share-variant</v-icon>
+          ><v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+            @click="$vuetify.goTo('#About')"
+          >
+            <v-icon>mdi-information</v-icon>
           </v-btn>
         </router-link>
       </template>
-      <span>Share</span>
+      <span>About</span>
     </v-tooltip>
 
     <v-tooltip bottom>
