@@ -7,6 +7,7 @@
     clipped
     floating
     right
+    color="background"
   >
     <template>
       <v-container fill-height>

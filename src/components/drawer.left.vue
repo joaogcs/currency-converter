@@ -4,6 +4,7 @@
     :app="$vuetify.breakpoint.lgAndUp"
     :floating="$vuetify.breakpoint.lgAndUp"
     :temporary="$vuetify.breakpoint.smAndDown"
+    color="background"
     fixed
   >
     <template>
