@@ -22,10 +22,8 @@
               exact
               style="text-decoration: none; color: inherit;"
             >
-              <div class="d-flex align-center" v-bind="attrs" v-on="on" >
-                <v-icon class="mr-3"
-                  >mdi-cash-multiple</v-icon
-                >
+              <div class="d-flex align-center" v-bind="attrs" v-on="on">
+                <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                 <v-responsive class="hidden-md-and-down">
                   <h3>
                     Currency converter
@@ -54,14 +52,14 @@ export default {
 
   data: function() {
     return {
-      appTitle: "Vuetify Currency Converter",
+      appTitle: "Vuetify Currency Converter"
     };
   },
 
   methods: {
     setClick() {
       this.$emit("click");
-    },
-  },
+    }
+  }
 };
 </script>
