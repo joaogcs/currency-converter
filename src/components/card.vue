@@ -108,7 +108,7 @@ export default {
 <style scoped>
 ::v-deep .centered-input input {
   text-align: center;
-  font-size: 1.8em;
+  font-size: 20px;
   /* color: var(--v-primary-base); */
 }
 </style>
