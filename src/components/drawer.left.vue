@@ -95,7 +95,7 @@ export default {
 
   methods: {
     onSelect(index) {
-      this.drawerFlag = false
+      this.drawerFlag = this.$vuetify.breakpoint.lgAndUp ? true : false;
       if (this.newitems[index].to) {
         if (this.$router.currentRoute.path === this.newitems[index].to) {
           this.$vuetify.goTo(`#${this.newitems[index].goTo}`);
