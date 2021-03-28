@@ -92,21 +92,20 @@
 export default {
   name: "SearchSingleCurrency",
 
-  data: () => ({
-    currencyNameLimit: 60,
-    isLoading: false,
-    entries: [],
-    model: null,
-    search: null,
-    tab: null
-  }),
+  props: ["currency"],
+
+  data() {
+    return {
+      currencyNameLimit: 60,
+      isLoading: false,
+      entries: [this.currency],
+      model: this.currency,
+      search: null,
+      tab: null
+    };
+  },
 
   methods: {
-    remove(id) {
-      this.entries = this.entries.filter(
-        entry => entry.id.toLowerCase() !== id.toLowerCase()
-      );
-    },
     filterObject(item, queryText) {
       return (
         item.id.toLocaleLowerCase().indexOf(queryText.toLocaleLowerCase()) >
@@ -115,15 +114,6 @@ export default {
           .toLocaleLowerCase()
           .indexOf(queryText.toLocaleLowerCase()) > -1
       );
-    },
-    dismissMobileKeyboard(event) {
-      event.target.blur(); // must happen first because it is the list
-      this.$refs.SearchSingleCurrency.blur(); // blur the autocomplete
-      alert(JSON.stringify(event));
-    },
-    test() {
-      alert("ok");
-      // this.$refs.SearchSingleCurrency.blur(); // blur the autocomplete
     }
   },
 
@@ -138,12 +128,15 @@ export default {
   },
 
   watch: {
-    model() {
+    model(currencySelected) {
+      // remove keyboard from mobile devices
       this.$refs.SearchSingleCurrency.blur();
+
+      this.$emit("onSelection", currencySelected);
     },
     search() {
       // Items have already been loaded
-      if (this.items.length > 0) return;
+      if (this.items.length > 1) return;
 
       this.isLoading = true;
 
