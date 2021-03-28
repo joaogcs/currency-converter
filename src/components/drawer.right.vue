@@ -24,6 +24,11 @@
 
 <script>
 export default {
-  name: "DrawerRight"
+  name: "DrawerRight",
+  data() {
+    return {
+      drawer: true
+    };
+  }
 };
 </script>
