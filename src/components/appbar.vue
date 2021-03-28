@@ -24,11 +24,9 @@
             >
               <div class="d-flex align-center" v-bind="attrs" v-on="on">
                 <v-icon class="mr-3">mdi-cash-multiple</v-icon>
-                <v-responsive class="hidden-md-and-down">
-                  <h3>
-                    Currency converter
-                  </h3>
-                </v-responsive>
+                <h4 class="hidden-md-and-down">
+                  Currency converter
+                </h4>
               </div>
             </router-link>
           </template>
