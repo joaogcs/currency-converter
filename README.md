@@ -1,79 +1,128 @@
-# Introduction
+# Vuetify Currency Converter
 
-For learning Vue.js purposes.
+![GitHub repo size](https://img.shields.io/github/repo-size/joaogcs/vuetify-currency-converter)
+![GitHub contributors](https://img.shields.io/github/contributors/joaogcs/vuetify-currency-converter)
 
-Hosted on Github Pages - [https://joaogcs.github.io/vuetify-currency-converter/](https://joaogcs.github.io/vuetify-currency-converter/)
+![GitHub stars](https://img.shields.io/github/stars/joaogcs/vuetify-currency-converter)
+![GitHub forks](https://img.shields.io/github/forks/joaogcs/vuetify-currency-converter)
 
-### Made with
+Project name is a model that allows anyone to do learn the basics of Vuetify.
 
-* Vue.js
-* Vuetify
-* Nuxt.js
-* Babel
-* ESLint
-* Yarn
+The layout is based on https://vuetifyjs.com/ website.
 
-## Project setup
+:arrow_forward: ​LIVE DEMO  https://joaogcs.github.io/vuetify-currency-converter/
 
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+* You have installed the latest version of [Vue CLI](https://cli.vuejs.org/)
+* You have installed the latest version of [Yarn](https://yarnpkg.com/)
+
+## API Limitations for currency conversor
+
+This repository is build with the free version of [Free Currency Converter API](https://free.currencyconverterapi.com/).
+
+It's limited to 100 calls per hour and you may need to refresh the current API Key to your own.
+
+The API Key is seen in the files:
+
+`src/components/SearchSingleCurrency.vue`
+
+```bash
+149 `https://free.currconv.com/api/v7/currencies?apiKey=d8b2e9d59ba3d57fba43`
 ```
+
+`src/components/card.vue`
+
+```bash
+209 `https://free.currencyconverterapi.com/api/v5/convert?q=${currencyA}_${currencyB}&compact=y&apiKey=d8b2e9d59ba3d57fba43`
+```
+
+## Installing vuetify-currency-converter
+
+To install vuetify-currency-converter, follow these steps:
+
+Linux and macOS:
+```bash
 yarn install
+
+# or
+
+npm install
 ```
 
-### Compiles and hot-reloads for development
+Windows:
+```bash
+yarn install
 
+# or 
+
+npm install
 ```
+## Run local environment
+
+To use vuetify-currency-converter, follow these steps:
+
+```bash
 yarn serve
+
+# or
+
+npm serve
 ```
 
-### Compiles and minifies for production
+## Deploy on Github Pages
 
+To deploy vuetify-currency-converter on Github Pages, verify the if the name of you master branch matches the branch in the script `scripts/gh-pages-deploy.js`, the default is `main`:
+
+```bash
+17 await execa("git", ["checkout", "-f", "main"]);
 ```
+
+> :information_source: **Note**
+>
+> If you are using NPM you also must change package module from `yarn` to `npm`
+>
+> ```bash
+> 9  await execa("yarn", ["run", "build"]);
+> ```
+
+> :warning: **Important​**
+>
+> Make sure you have your Github account configured and you have committed all changes in `main` branch. 
+
+To change the path of your Github Page, open `vue.config.js` file and change the value of `publicPath` property to the path you want.
+
+Follow these steps to deploy to Github Pages
+
+```bash
 yarn build
+
+yarn deploy
 ```
 
-### Lints and fixes files
+## Contributing to vuetify-currency-converter
 
-```
-yarn lint
-```
+To contribute to vuetify-currency-converter, follow these steps:
 
-### Start Vue CLI Ui
+1. Fork this repository.
+2. Create a branch: `git checkout -b development`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`
+4. Push to the original branch: `git push origin vuetify-currency-converter/main`
+5. Create the pull request.
 
-```
-vue ui
-```
+Alternatively see the Github documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-## Deploy project to GitHub Pages
+## Contributors
 
-**Warning** - Only do it AFTER you have commited your code.
+Thanks to the following people who have contributed to this project:
 
-#### Change path name on URL on GitHub Pages
+* [@joaogcs](https://github.com/joaogcs) 📖
 
-Change it within vue.config.js file
+## Contact
 
-```javascript
-module.exports = {
-  publicPath: "/template-vuetify-spa/",
-};
-```
+If you want to contact me you can reach me at <joaogcsoares1@gmail.com>.
 
-Then run the command below to checkout to gh-pages branch, build the project and push all files within 'dist' folder to the branch. Then it checkout back to main branch so you can commit and push to the main branch as usual.
-
-```
-yarn run deploy
-```
-
-## Extra info
-
-### How to hard reload GitHub Pages
-
-* Ctrl+F5 reloads the page without using the local cache.
-* Ctrl+Shift+R also works, but not in IE
-
-Or
-
-1. Open Dev Tools by pressing: F12 or Ctrl+Shift+I (or on Mac: Opt+Cmd+I)
-2. Now by just leaving dev tools open, right-click or click and hold the reload button next to the address bar. Now a somewhat 'hidden menu' opens.
-3. Choose: "Empty Cache and Hard Reload"
-
-Credits to [[User Dim - Super User](https://superuser.com/users/112558/dim)] - [Google Chrome - Clear Cache for Specific Website - Super User](https://superuser.com/questions/721692/google-chrome-clear-cache-for-specific-website)
+## License![License](https://img.shields.io/github/license/joaogcs/vuetify-currency-converter)
+This project uses the following license: [MIT](https://opensource.org/licenses/MIT).
