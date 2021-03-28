@@ -7,14 +7,8 @@
         </h1>
 
         <h4>Made with Vuetify</h4>
-        <p class="subheading font-weight-regular">
-          Github repository
-          <a
-            href="https://github.com/joaogcs/vuetify-currency-converter"
-            target="_blank"
-            >vuetify-currency-converter</a
-          >
-        </p>
+        <br />
+
         <p class="subheading font-weight-regular">
           <br />
           For help and collaboration with other Vuetify developers,
@@ -22,6 +16,15 @@
           please join our online
           <a href="https://community.vuetifyjs.com" target="_blank"
             >Discord Community</a
+          >
+        </p>
+        <p class="subheading font-weight-regular">
+          <v-icon>mdi-github</v-icon>
+          Github repository
+          <a
+            href="https://github.com/joaogcs/vuetify-currency-converter"
+            target="_blank"
+            >vuetify-currency-converter</a
           >
         </p>
       </v-col>

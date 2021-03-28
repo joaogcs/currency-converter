@@ -1,23 +1,46 @@
 <template>
   <v-container class="px-8">
     <v-row class="text-center">
-      <v-col class="mb-5" cols="12">
+      <v-col class="mb-1" cols="12">
         <h2 class="headline font-weight-bold mb-3">
           Author
         </h2>
 
-        <v-row justify="center">
-          <v-icon>mdi-linkedin</v-icon>
+        <v-icon>mdi-linkedin</v-icon>
+        <a
+          v-for="(next, i) in author"
+          :key="i"
+          :href="next.href"
+          class="subheading mx-3"
+          target="_blank"
+        >
+          {{ next.text }}
+        </a>
+
+        <p class="subheading font-weight-regular">
+          <v-icon>mdi-github</v-icon>
           <a
-            v-for="(next, i) in author"
-            :key="i"
-            :href="next.href"
+            href="https://github.com/joaogcs"
             class="subheading mx-3"
             target="_blank"
+            >JoaoGCS</a
           >
-            {{ next.text }}
-          </a>
-        </v-row>
+        </p>
+
+        <br />
+
+        <h2 class="headline font-weight-bold mb-3">
+          Repository
+        </h2>
+        <p class="subheading font-weight-regular">
+          <v-icon>mdi-github</v-icon>
+          <a
+            href="https://github.com/joaogcs/vuetify-currency-converter"
+            class="subheading mx-3"
+            target="_blank"
+            >vuetify-currency-converter</a
+          >
+        </p>
       </v-col>
     </v-row>
     <v-row class="text-center">
