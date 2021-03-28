@@ -19,7 +19,7 @@ Before you begin, ensure you have met the following requirements:
 * You have installed the latest version of [Vue CLI](https://cli.vuejs.org/)
 * You have installed the latest version of [Yarn](https://yarnpkg.com/)
 
-## API Limitations for currency conversor
+## API limitations of currency converter free version
 
 This repository is build with the free version of [Free Currency Converter API](https://free.currencyconverterapi.com/).
 
@@ -101,6 +101,37 @@ yarn build
 
 yarn deploy
 ```
+
+## Theme colors configuration :sunny: | :new_moon:
+
+To change colors of dark and light theme go to `src/plugins/vuetify.js` and change property values as you need.
+
+> :bulb: More information on [Vuetify Theme Configuration](https://vuetifyjs.com/en/features/theme/)
+
+```javascript
+export default new Vuetify({
+  theme: {
+    themes: {
+      light: {
+        secondary: colors.grey.lighten3,
+        tertiary: colors.grey.lighten3,
+        accent: colors.green.lighten1,
+        error: colors.red.accent3,
+        background: colors.white
+      },
+      dark: {
+        secondary: colors.grey.darken3,
+        tertiary: colors.grey.darken4,
+        accent: colors.green,
+        error: colors.red.accent3,
+        background: "#121212"
+      }
+    }
+  }
+});
+```
+
+
 
 ## Contributing to vuetify-currency-converter
 
