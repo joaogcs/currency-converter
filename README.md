@@ -102,7 +102,7 @@ yarn build
 yarn deploy
 ```
 
-## Theme colors configuration :sunny: | :new_moon:
+## Theme color configuration :sunny: | :new_moon:
 
 To change colors of dark and light theme go to `src/plugins/vuetify.js` and change property values as you need.
 
