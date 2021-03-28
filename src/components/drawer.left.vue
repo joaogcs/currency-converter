@@ -26,7 +26,7 @@
                 class="d-flex align-center"
                 v-bind="attrs"
                 v-on="on"
-                @click="$vuetify.goTo('#Converter')"
+                @click="onSelect(0)"
               >
                 <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                 <h4>
