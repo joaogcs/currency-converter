@@ -6,7 +6,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/joaogcs/vuetify-currency-converter)
 ![GitHub forks](https://img.shields.io/github/forks/joaogcs/vuetify-currency-converter)
 
-Project name is a model that allows anyone to do learn the basics of Vuetify.
+Vuetify Currency Converter is a template that I developed to learn the basics of Vuetify.
 
 The layout is based on https://vuetifyjs.com/ website.
 
