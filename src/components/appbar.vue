@@ -22,7 +22,12 @@
               exact
               style="text-decoration: none; color: inherit;"
             >
-              <div class="d-flex align-center" v-bind="attrs" v-on="on">
+              <div
+                class="d-flex align-center"
+                v-bind="attrs"
+                v-on="on"
+                @click="$vuetify.goTo('#Converter')"
+              >
                 <v-icon class="mr-3">mdi-cash-multiple</v-icon>
                 <h4 class="hidden-md-and-down">
                   Currency converter
