@@ -78,7 +78,6 @@
 
 <script>
 import SearchSingleCurrency from "@/components/SearchSingleCurrency.vue";
-import { setValue } from "vue-currency-input";
 
 export default {
   name: "Card",
@@ -119,7 +118,11 @@ export default {
       lockB: false,
       conversorScale: null,
       loading: false,
-      selection: 1
+      selection: 1,
+      formatter: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+      }).resolvedOptions().maximumFractionDigits
     };
   },
 
@@ -128,7 +131,7 @@ export default {
   computed: {
     valueA: {
       get: function() {
-        return this.currencyA.value;
+        return this.currencyA.value.replaceAll(",", "");
       },
       set: val => {
         this.currencyA.value = val;
@@ -136,7 +139,7 @@ export default {
     },
     valueB: {
       get: function() {
-        return this.currencyB.value;
+        return this.currencyB.value.replaceAll(",", "");
       },
       set: val => {
         this.currencyB.value = val;
@@ -146,26 +149,34 @@ export default {
 
   watch: {
     async valueA() {
+      console.log("A");
       if (this.lockB) return;
 
       if (!this.conversorScale) {
         await this.convert(this.currencyA.id, this.currencyB.id);
       }
 
-      this.currencyB.value = (this.valueA * (this.conversorScale || 1)).toFixed(
-        2
-      );
+      this.currencyB.value = Number(
+        this.valueA * (this.conversorScale || 1)
+      ).toLocaleString("en-US", {
+        minimumFractionDigits: this.formatter,
+        maximumFractionDigits: this.formatter
+      });
     },
     async valueB() {
+      console.log("B");
       if (this.lockA) return;
 
       if (!this.conversorScale) {
         await this.convert(this.currencyA.id, this.currencyB.id);
       }
 
-      this.currencyA.value = (this.valueB / (this.conversorScale || 1)).toFixed(
-        2
-      );
+      this.currencyA.value = Number(
+        this.valueB / (this.conversorScale || 1)
+      ).toLocaleString("en-US", {
+        minimumFractionDigits: this.formatter,
+        maximumFractionDigits: this.formatter
+      });
     }
   },
 
@@ -184,9 +195,12 @@ export default {
       this.currencyA.currencySymbol = newCurrency.currencySymbol;
       await this.convert(this.currencyA.id, this.currencyB.id);
 
-      this.currencyB.value = (this.valueA * (this.conversorScale || 1)).toFixed(
-        2
-      );
+      this.currencyB.value = Number(
+        this.valueA * (this.conversorScale || 1)
+      ).toLocaleString("en-US", {
+        minimumFractionDigits: this.formatter,
+        maximumFractionDigits: this.formatter
+      });
     },
     async updateCurrencyB(newCurrency) {
       this.currencyB.id = newCurrency.id;
@@ -194,15 +208,12 @@ export default {
       this.currencyB.currencySymbol = newCurrency.currencySymbol;
       await this.convert(this.currencyA.id, this.currencyB.id);
 
-      this.currencyA.value = (this.valueB / (this.conversorScale || 1)).toFixed(
-        2
-      );
-    },
-    updateValueOfCurrencyA(val) {
-      setValue(this.$refs.currencyA, val);
-    },
-    updateValueOfCurrencyB(val) {
-      setValue(this.$refs.currencyB, val);
+      this.currencyA.value = Number(
+        this.valueB / (this.conversorScale || 1)
+      ).toLocaleString("en-US", {
+        minimumFractionDigits: this.formatter,
+        maximumFractionDigits: this.formatter
+      });
     },
     async convert(currencyA, currencyB) {
       let res = await fetch(
