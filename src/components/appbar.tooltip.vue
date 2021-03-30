@@ -2,23 +2,26 @@
   <div>
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
-        <router-link
-          to="/about"
-          exact
-          style="text-decoration: none; color: inherit;"
-          ><v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-            @click="
-              $nextTick(() => {
+        <v-btn
+          icon
+          v-bind="attrs"
+          v-on="on"
+          @click="
+            $router.push(
+              '/about',
+              function() {
+                $nextTick(() => {
+                  $vuetify.goTo('#About');
+                });
+              },
+              function() {
                 $vuetify.goTo('#About');
-              })
-            "
-          >
-            <v-icon>mdi-information</v-icon>
-          </v-btn>
-        </router-link>
+              }
+            )
+          "
+        >
+          <v-icon>mdi-information</v-icon>
+        </v-btn>
       </template>
       <span>About</span>
     </v-tooltip>
